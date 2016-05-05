@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+struct string
+{
+    char a[100];
+    int c;
+}s[10000];
+int main()
+{
+    char str[10000],ch;
+    int i=0,j=0,k=0;
+    int len,flag[1000],x,y,z=0,max;
+
+FILE *file;
+file=fopen("pro3.txt","r");
+if(file==NULL)
+{
+    printf("File Not Found\n");
+}else{
+    while((ch=fgetc(file))!=EOF)
+{
+    str[i]=ch;
+    i++;
+}
+}
+
+fclose(file);
+
+len=strlen(str);
+
+for(i=0;i<len;i++)
+{
+    if(str[i]<='Z'&&str[i]>='A')
+    str[i]=str[i]+32;
+}
+for(i=0;i<len;i++)
+{
+    if(str[i]=='.')
+        {
+            for(j=i;j<len;j++)
+                {
+                    str[j]=str[j+1];
+                }
+            len--;
+
+        }
+}
+len++;
+getch();
+}
