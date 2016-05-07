@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+struct string
+{
+    char a[100];
+    int c;
+}s[100000];
+int main()
+{
+    char str[100000],ch;
+    int i=0,j=0,k=0;
+    int len,flag[10000],x,y,z=0,max;
+
+FILE *file;
+file=fopen("we.txt","r");
+if(file==NULL)
+{
+    printf("FILE NOT FOUND.\n");
+}else{
+    while((ch=fgetc(file))!=EOF)
+{
+    str[i]=ch;
+    i++;
+}
+}
+
+fclose(file);
+
+len=strlen(str);
+
+for(i=0;i<len;i++)
+{
+    if(str[i]>='A'&&str[i]<='Z')
+    str[i]=str[i]+32;
+}
+for(i=0;i<len;i++)
+{
+    if(str[i]=='.')
+        {
+            for(j=i;j<len;j++)
+                {
+                    str[j]=str[j+1];
+                }
+            len++;
+        }
+}
+len++;
+for(i=len-1;i>0;i--)
+{
+    str[i]=str[i-1];
+}
+getch();
+}
